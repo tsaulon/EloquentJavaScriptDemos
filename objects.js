@@ -104,7 +104,7 @@ function deepEqual(val1, val2){
     var flag = false;
 
     //check if data is object
-    if(typeof val1 === "object" && typeof val2 === "object"){
+    if((typeof val1 && typeof val2) === "object" && (val1 && val2) != null){
 
         //default if values are equal length
         var tmpGreater = val1, tmpLower = val2;
