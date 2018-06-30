@@ -115,7 +115,6 @@ function deepEqual(val1, val2){
             var tmpLower = (val1.length < val2.length) ? val1 : val2;
         }
 
-
         //check each property of greater lengthed object.
         for(x in tmpGreater){
             flag = deepEqual(tmpGreater[x], tmpLower[x]);
