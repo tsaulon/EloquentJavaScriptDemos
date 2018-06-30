@@ -126,4 +126,6 @@ function deepEqual(val1, val2){
     return val1 === val2 || flag;
 }
 
+console.time(deepEqual);
 console.log(deepEqual(c, a));
+console.timeEnd(deepEqual);
