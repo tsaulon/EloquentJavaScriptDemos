@@ -92,3 +92,39 @@ console.timeEnd(listToArray);
 console.time(listToArray);
 console.log(arrayToList(listToArray(list)));    //Output: { value: 1, next: { value: 2, next: { value: 3, next: null } } }
 console.timeEnd(listToArray);
+
+var a = {foo: 1, bar: 2};
+var b = {foo: 1, bar: 2};
+var c = b;
+var d = {foo: 13, bar: 25, baz: 10}
+
+//Check inputs if equal by value, reference, or containing properties of an object.
+function deepEqual(val1, val2){
+
+    var flag = false;
+
+    //check if data is object
+    if((typeof val1 && typeof val2) === "object" && (val1 && val2) != null){
+
+        //default if values are equal length
+        var tmpGreater = val1, tmpLower = val2;
+
+        //new declaration if object lengths are different
+        if(val1.length !== val2.length){
+            var tmpGreater = (val1.length > val2.length) ? val1 : val2;
+            var tmpLower = (val1.length < val2.length) ? val1 : val2;
+        }
+
+        //check each property of greater lengthed object.
+        for(x in tmpGreater){
+            flag = deepEqual(tmpGreater[x], tmpLower[x]);
+        }
+    }
+
+    //return true if values are equal or if object properties are equal.
+    return val1 === val2 || flag;
+}
+
+console.time(deepEqual);
+console.log(deepEqual(c, a));
+console.timeEnd(deepEqual);
