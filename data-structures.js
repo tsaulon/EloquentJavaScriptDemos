@@ -25,7 +25,7 @@ function sumRange(low, high, step = 1){ //  set default parameter
 }
 
 console.time(sumRange);
-console.log(`sumRange() output: ${sumRange(10, 2, -1)}`);   //Output: [ 10, 9, 8, 7, 6, 5, 4, 3, 2 ]
+console.log(`sumRange() output: ${sumRange(10, 2, -1)}`);   //Output: [ 10, 9, 8, 7, 6, 5, 4, 3, 2 ].
 console.timeEnd(sumRange);
 
 //  custom string reversal
