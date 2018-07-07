@@ -11,12 +11,9 @@ function sumRange(low, high, step = 1){ //  set default parameter
 
     var range = [];
 
-
     for(let i = low; (step > 0) ? i <= high : i >= high; i += step){
         range.push(i);
     }
-
-    console.log(range); 
 
     //  accumulate the array
     return range.reduce((acc, curr) => {
