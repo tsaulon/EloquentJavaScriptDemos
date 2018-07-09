@@ -1,5 +1,6 @@
-//  JavaScript classes are constructor functions with a prototype property.
+//  ENCAPSULATION
 
+//  JavaScript classes are constructor functions with a prototype property.
 class Rabbit{
 
     constructor(type = "basic"){    //  add default values for cases where user does not define a value.
@@ -42,7 +43,7 @@ let ages = {
 }
 
 console.log(`Tyrone is ${ages["Tyrone"]}`);
-console.log("Is Ainsley's name known?", "Jack" in ages);    //  check for property inside object
+console.log("Is Ainsley's name known?", "Ainsley" in ages);    //  check for property inside object
 console.log("Is toString's age known?", "toString" in ages);    //  returns true but 'toString()' not explicitly defined in object.
 console.log();
 
@@ -70,3 +71,34 @@ console.log();
 
 console.log({x: 1}.hasOwnProperty("x"));    //  checking instance of object
 console.log({x: 1}.hasOwnProperty("toString")); //  attempting to check object prototype
+
+//POLYMORPHISM
+
+Rabbit.prototype.toString = function(){ //  overriding toString prototype property
+    return `a ${this.type} rabbit`;
+}
+
+console.log(String(blackRabbit));
+
+//SYMBOLS
+//  similar to C++ enums
+
+let sym = Symbol("name");
+console.log(sym == Symbol("name"));
+
+Rabbit.prototype[sym] = 55;
+console.log(blackRabbit[sym]);
+
+const toStringSymbol = Symbol("toString");
+Array.prototype[toStringSymbol] = function() {
+    return `${this.length} cm of blue yarn.`;
+}
+
+console.log([1, 2].toString());
+console.log([1, 2][toStringSymbol]());
+
+let stringObject = {
+    [toStringSymbol]() { return "a jute rope"; }
+}
+
+console.log(stringObject[toStringSymbol]());
