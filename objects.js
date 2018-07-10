@@ -237,6 +237,10 @@ console.log(ainsley.length());
         this.group = group;         
      }
 
+     [Symbol.iterator](){   //  Use the GroupIterator class to iterate through the Group class (Association relationship between classes)
+         return new GroupIterator(this);
+     }
+
      static from(iterObj){
          return new Group(iterObj);
      }
@@ -290,7 +294,7 @@ console.log(ainsley.length());
      }
 
      get members(){
-         return this.group.toString();
+         return this.group;
      }
  }
 
@@ -303,3 +307,27 @@ console.log(ainsley.length());
  console.log(group.members);    // → 1,3,4,5
  console.log(group.has(2));     // → false
  console.log(group.has(3));     // → 1
+
+ // Iterable Groupss
+
+ class GroupIterator{
+     constructor(group){
+         this.index = 0;
+         this.group = group.members;
+     }
+
+     next(){
+         if(this.index === this.group.length - 1){
+            return {done: true}
+         }
+
+         let value = this.group[this.index++];
+
+         return {value, done: false }
+     }
+ }
+
+ for(let value of group){
+    console.log(value);
+ }
+ 
