@@ -173,4 +173,29 @@ class Matrix {
   Matrix.prototype[Symbol.iterator] = function() {
     return new MatrixIterator(this);
   };
-  
+
+  //    EXERCISES
+
+class Vector{
+    constructor(x, y){
+        this.x = x;
+        this.y = y;
+    }
+
+    plus(vectorObj){
+        return new Vector((this.x + vectorObj.x), (this.y + vectorObj.y));
+    }
+
+    minus(vectorObj){
+        return new Vector((this.x + vectorObj.x), (this.y + vectorObj.y));
+    }
+
+    toString(){
+        return `Vector { x: ${this.x}, y: ${this.y}}`;
+    }
+}
+
+let tyrone = new Vector(1, 2);
+let ainsley = new Vector(3, 2);
+
+console.log(tyrone.plus(ainsley).toString());
