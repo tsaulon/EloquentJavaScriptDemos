@@ -329,7 +329,7 @@ console.log(ainsley.length());
             return {done: true}
          }
 
-         let value = this.group[this.index++];
+         let value = this.group[this.index++];  //  can pass value as an object and iterate through each property
 
          return {value, done: false }
      }
