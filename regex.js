@@ -116,3 +116,9 @@ let regex = /[\da-f]+h/;
 console.log(regex.test("ah"))
 
 //  The Replace Method
+//  'g' matches entire string (global condition)
+console.log("papa".replace("p", "m"));  //  replaces first match
+
+//  Pass regular expression with a global condition to replace all instances of the expression matched.
+console.log("Borobudur".replace(/[ou]/, "a"));  // Barobudur
+console.log("Borobudur".replace(/[ou]/g, "a")); // Barabadar
