@@ -108,5 +108,11 @@ console.log(/\bcat\b/.test("concatenate")); //  false
 //  Testing whether text contains a number followed by one of the words
 //  pig, cow, chicken, or in any of their plural forms.
 let animalCount = /\b\d+ (pig|cow|chicken)s?\b/;
-console.log(animalCount.test("15 pigs"));
-console.log(animalCount.test("15 pigchickens"));
+console.log(animalCount.test("15 pigs"));   //  true
+console.log(animalCount.test("15 pigchickens"));    //  false
+
+//  Evaluating for hexadecimal numbers
+let regex = /[\da-f]+h/;
+console.log(regex.test("ah"))
+
+//  The Replace Method
