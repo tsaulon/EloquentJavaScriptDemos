@@ -98,6 +98,15 @@ console.log(getDate("1-30-2018"));  //  2018-01-30T05:00:00.000Z
 //  '$' matches end of string
 //  Examples:   > /^\d+$/ matches a string consisting of one or more digits
 //              > /^!/ matches any string that starts with the '!' symbol
-//              > /x^/ does not match anything. There cannot be an x before beginning of string
-console.log(/cat/.test("concatenate"));
-console.log(/\bcat\b/.test("concatenate"));
+//              > /x^/ does not match anything. There cannot be an x before beginning of 
+//  Example below returns true if the string contains the literal word "cat".
+//  Not words that contain the letter "cat"
+console.log(/cat/.test("concatenate"));     //  true
+console.log(/\bcat\b/.test("concatenate")); //  false
+
+//  Choice Patterns
+//  Testing whether text contains a number followed by one of the words
+//  pig, cow, chicken, or in any of their plural forms.
+let animalCount = /\b\d+ (pig|cow|chicken)s?\b/;
+console.log(animalCount.test("15 pigs"));
+console.log(animalCount.test("15 pigchickens"));
