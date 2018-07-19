@@ -90,5 +90,14 @@ function getDate(string){
     let [_, month, day, year] = /(\d{1,2})-(\d{1,2})-(\d{4})/.exec(string);
     return new Date(year, month - 1, day);
 }
-
 console.log(getDate("1-30-2018"));  //  2018-01-30T05:00:00.000Z
+
+//  Word and string boundaries
+//  Enforcing rules across span of whole string
+//  '^' matches start of string (used outside of square brackets)
+//  '$' matches end of string
+//  Examples:   > /^\d+$/ matches a string consisting of one or more digits
+//              > /^!/ matches any string that starts with the '!' symbol
+//              > /x^/ does not match anything. There cannot be an x before beginning of string
+console.log(/cat/.test("concatenate"));
+console.log(/\bcat\b/.test("concatenate"));
